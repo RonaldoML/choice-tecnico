@@ -1,0 +1,20 @@
+# version: '3'
+version: "3.8"
+services:
+  challenge_ui:
+    container_name: challenge_ui
+    restart: always
+    build:
+      context: ./challenge-ui
+      dockerfile: Dockerfile
+    ports:
+      - 5173:5173
+
+  challenge_api:
+    container_name: challenge_api
+    restart: always
+    build:
+      context: ./challenge-api
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
