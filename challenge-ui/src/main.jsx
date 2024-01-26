@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import 'bootstrap/dist/css/bootstrap.css';
 import { Provider } from 'react-redux';
-import { store } from './context/store/store.js';
+import { store } from './services/store/store.js';
+import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
