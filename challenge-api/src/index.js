@@ -1,9 +1,5 @@
-const express = require('express');
+const Server = require('./models/server');
 
-const app = express();
+const server = new Server();
 
-app.get('/', (req, res) => {
-  res.send('Successful response.');
-});
-
-app.listen(3000, () => console.log('Example app is listening on port 3000.'));
+server.listen();
