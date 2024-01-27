@@ -1,7 +1,7 @@
 import { types } from "../types/types";
 
 const initialState = {
-  data: null,
+  files: null,
 };
 
 export const fileReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ export const fileReducer = (state = initialState, action) => {
     case types.saveFiles:
       return {
         ...state,
-        data: action.payload
+        files: action.payload
       }
     default:
       return state;

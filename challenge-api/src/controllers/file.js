@@ -47,6 +47,9 @@ const getFilesController = async (_, res = Response) => {
       return acc;
     }, []);
 
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     return res.status(200).json({
       files
     });

@@ -1,10 +1,14 @@
 
 export const Header = () => {
   return (
-    <header className="p-3 mb-2 bg-danger text-white">
-      <h4>
-        React Test App
-      </h4>
+    <header>
+      <nav className="navbar fixed-top bg-danger text-white">
+        <div className="container-fluid">
+          <h4>
+            React Test App
+          </h4>
+        </div>
+      </nav>
     </header>
   )
 }
