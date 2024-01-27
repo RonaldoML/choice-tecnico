@@ -17,9 +17,7 @@ export const useGetFiles = () => {
 
   useEffect(() => {
     dispatch(getFiles());
-  }, [])
+  }, [dispatch]);
 
-
-
-  return { isError, isLoading, error, files }
+  return { isError, isLoading, error, files };
 }

@@ -1,5 +1,5 @@
-import { Header } from "../components/Header"
-import MainPage from "../pages/MainPage"
+import { Header } from "../components/Header";
+import MainPage from "../pages/MainPage";
 
 const MainLayout = () => {
   return (
@@ -7,7 +7,7 @@ const MainLayout = () => {
       <Header />
       <MainPage />
     </>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;
