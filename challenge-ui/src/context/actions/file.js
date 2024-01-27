@@ -40,7 +40,7 @@ export const getFile = () => {
   return "Some file data";
 };
 
-const saveFiles = (data) => ({
+export const saveFiles = (data) => ({
   type: types.saveFiles,
   payload: data,
 });
