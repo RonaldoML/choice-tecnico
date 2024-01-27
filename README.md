@@ -36,6 +36,8 @@ cd docker compose up
 ```
 3. Runs in localhost:4000
 
+4. Swagger documentation runs in localhost:4000/api-doc
+
 ### UI:
 1. Go to challenge-ui
 ```bash
