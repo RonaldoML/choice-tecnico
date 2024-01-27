@@ -5,11 +5,17 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
   },
   "author": "ronaldo-monserrate",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "axios": "^1.6.7",
+    "chai": "*",
+    "mocha": "*"
   }
 }
