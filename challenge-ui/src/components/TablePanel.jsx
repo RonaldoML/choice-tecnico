@@ -1,15 +1,37 @@
 
+import { useMemo } from 'react';
+import { useGetFiles } from '../hooks/useGetFiles';
 import { Table } from './Table';
+import { getRows } from '../utils/process-data';
 
 export const TablePanel = () => {
 
+  const {
+    isLoading,
+    isError,
+    error,
+    files,
+  } = useGetFiles();
+
   const columns = ['File Name', 'Text', 'Number', 'Hex'];
 
-  const rows = [{ name: 'file1.csv', number: "1223", hex: "32234FFA1AD", text: "sometext" }];
+  const rows = useMemo(() => {
+    return files?.map(file => getRows(file)).flat(Infinity)
+  }, [files]);
+
+  const displayTable = Array.isArray(rows) && rows.length > 0;
 
   return (
-    <section className='container'>
-      <Table columns={columns} rows={rows} />
+    <section>
+      {
+        isLoading && <h1>Loading</h1>
+      }
+      {
+        isError && <h1>{error}</h1>
+      }
+      {
+        displayTable && <Table columns={columns} rows={rows} />
+      }
     </section>
-  )
-}
+  );
+};

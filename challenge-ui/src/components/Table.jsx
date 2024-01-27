@@ -12,7 +12,7 @@ export const Table = ({ columns, rows }) => {
           }
         </tr>
       </thead>
-      <tbody>
+      <tbody className='table-group-divider'>
         {
           rows.map(({ name, text, number, hex }, index) => (
             <tr key={`row-${hex}-${index}`}>

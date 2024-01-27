@@ -1,8 +1,12 @@
+import { Header } from "../components/Header"
 import MainPage from "../pages/MainPage"
 
 const MainLayout = () => {
   return (
-    <MainPage />
+    <>
+      <Header />
+      <MainPage />
+    </>
   )
 }
 

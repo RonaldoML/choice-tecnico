@@ -1,12 +1,10 @@
 import { TablePanel } from "../components/TablePanel"
-import { Header } from "../components/Header"
 
 const MainPage = () => {
   return (
-    <>
-      <Header />
+    <main className="m-5 p-5">
       <TablePanel />
-    </>
+    </main>
   )
 }
 
