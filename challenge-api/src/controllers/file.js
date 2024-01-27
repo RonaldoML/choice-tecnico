@@ -1,5 +1,6 @@
 const Response = import("express").Response
 const { getFiles, getFile } = require("../network/file");
+const { createFilesResponse } = require("../utils/process-files");
 const { filterValidLines } = require("../utils/validations");
 
 
@@ -20,39 +21,13 @@ const getFilesController = async (req, res = Response) => {
 
     const filesResponse = await Promise.allSettled(filesRequests);
 
-    const filesData = filesResponse
+    const filteredFiles = filesResponse
       .filter(fileResponse => fileResponse.status === 'fulfilled')
       .map(fileResponse => fileResponse.value.data)
       .map(filterValidLines)
       .filter(lines => lines.length > 1);
 
-    const files = filesData.reduce((acc, elem) => {
-
-      const [_, ...lines] = elem;
-
-      const newFile = {
-        file: '',
-        lines: [],
-      };
-
-      lines.forEach((line) => {
-
-        const rows = line.split(',');
-
-        newFile.file = rows[0];
-
-        newFile.lines.push({
-          text: rows[1],
-          number: rows[2],
-          hex: rows[3],
-        });
-
-      });
-
-      acc.push(newFile);
-
-      return acc;
-    }, []);
+    const files = createFilesResponse(filteredFiles);
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
