@@ -3,11 +3,18 @@ const { getFiles, getFile } = require("../network/file");
 const { filterValidLines } = require("../utils/validations");
 
 
-const getFilesController = async (_, res = Response) => {
+const getFilesController = async (req, res = Response) => {
+
+  const { fileName } = req.query;
+
   try {
 
-    const response = await getFiles();
-    const data = response.data.files;
+    let data = [fileName]
+
+    if (!fileName) {
+      const response = await getFiles();
+      data = response.data.files;
+    }
 
     const filesRequests = data.map(file => getFile(file));
 
@@ -50,6 +57,12 @@ const getFilesController = async (_, res = Response) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
+    if (files.length === 0) {
+      return res.status(404).json({
+        files: []
+      });
+    }
+
     return res.status(200).json({
       files
     });
@@ -61,6 +74,26 @@ const getFilesController = async (_, res = Response) => {
   }
 };
 
+const getOriginalFileList = async (_, res = Response) => {
+  try {
+    const response = await getFiles();
+    const files = response.data.files;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    return res.status(response.status).json({
+      files
+    });
+
+  } catch (_) {
+    res.status(500).json({
+      message: 'Internal server error.'
+    });
+  }
+};
+
+
 module.exports = {
-  getFilesController
+  getFilesController,
+  getOriginalFileList,
 };
