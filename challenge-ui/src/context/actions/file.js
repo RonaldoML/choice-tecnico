@@ -1,7 +1,7 @@
 import { types } from "../types/types";
 import { isError, isLoading, noError, noLoading } from "./ui";
 
-const url = 'http://localhost:3000/files/data';
+const url = 'http://localhost:4000/files/data';
 
 export const getFiles = () => {
   return async (dispatch) => {
@@ -14,13 +14,6 @@ export const getFiles = () => {
           accept: 'application/json'
         },
       });
-      1
-      if (!response.ok) {
-
-        dispatch(noLoading());
-        dispatch(isError(data.message));
-        return;
-      }
 
       const data = await response.json();
 

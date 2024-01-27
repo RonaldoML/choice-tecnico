@@ -8,7 +8,7 @@ services:
       context: ./challenge-ui
       dockerfile: Dockerfile
     ports:
-      - 5173:5173
+      - 3000:3000
 
   challenge_api:
     container_name: challenge_api
@@ -17,4 +17,4 @@ services:
       context: ./challenge-api
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - 4000:4000

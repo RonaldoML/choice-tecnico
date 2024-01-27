@@ -1,14 +1,14 @@
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
 export const Header = () => {
   return (
     <header>
-      <nav className="navbar fixed-top bg-danger text-white">
-        <div className="container-fluid">
-          <h4>
-            React Test App
-          </h4>
-        </div>
-      </nav>
+      <Navbar className="navbar fixed-top bg-danger">
+        <Container>
+          <Navbar.Brand className='text-white'>React Test App</Navbar.Brand>
+        </Container>
+      </Navbar>
     </header>
   )
 }

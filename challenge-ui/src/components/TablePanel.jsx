@@ -1,7 +1,7 @@
 
 import { useMemo } from 'react';
 import { useGetFiles } from '../hooks/useGetFiles';
-import { Table } from './Table';
+import { CustomTable } from './Table';
 import { getRows } from '../utils/process-data';
 
 export const TablePanel = () => {
@@ -30,7 +30,7 @@ export const TablePanel = () => {
         isError && <h1>{error}</h1>
       }
       {
-        displayTable && <Table columns={columns} rows={rows} />
+        displayTable && <CustomTable columns={columns} rows={rows} />
       }
     </section>
   );

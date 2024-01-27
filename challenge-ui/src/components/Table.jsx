@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
+import Table from 'react-bootstrap/Table';
 
-export const Table = ({ columns, rows }) => {
+
+export const CustomTable = ({ columns, rows }) => {
   return (
-    <table className="table table-striped table-bordered">
+    <Table striped bordered>
       <thead>
         <tr>
           {
@@ -24,11 +26,11 @@ export const Table = ({ columns, rows }) => {
           ))
         }
       </tbody>
-    </table>
+    </Table>
   )
 }
 
-Table.propTypes = {
+CustomTable.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.string),
   rows: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
