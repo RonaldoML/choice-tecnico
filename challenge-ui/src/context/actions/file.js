@@ -4,33 +4,50 @@ import { isError, isLoading, noError, noLoading } from "./ui";
 const url = 'http://localhost:4000/files/data';
 
 export const getFiles = () => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
+    const search = getState().search;
+
     try {
       dispatch(isLoading());
       dispatch(noError());
 
-      const response = await fetch(url, {
+      const uri = new URL(url);
+
+      console.log(search)
+
+      if (search.search) {
+        uri.searchParams.append('fileName', search.search);
+      }
+
+      const response = await fetch(uri, {
         headers: {
           accept: 'application/json'
         },
       });
 
+      if (response.status === 404) {
+        dispatch(saveFiles([]));
+        return
+      }
+
+      if (response.status === 500) {
+        dispatch(isError('Internal Server error'));
+        dispatch(saveFiles(null));
+      }
+
       const data = await response.json();
 
-      dispatch(noLoading());
       dispatch(noError());
       dispatch(saveFiles(data.files));
 
     } catch (_) {
-      dispatch(saveFiles([]));
-      dispatch(noLoading());
       dispatch(isError('Something went wrong! :('));
+      dispatch(saveFiles(null));
+    } finally {
+      dispatch(noLoading());
+
     }
   };
-};
-
-export const getFile = () => {
-  return "Some file data";
 };
 
 export const saveFiles = (data) => ({

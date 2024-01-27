@@ -1,8 +1,11 @@
 
 import { useMemo } from 'react';
 import { useGetFiles } from '../hooks/useGetFiles';
-import { CustomTable } from './Table';
+import { CustomTable } from './CustomTable';
 import { getRows } from '../utils/process-data';
+import { ErrorBanner } from './ErrorBanner';
+import { NoResultsBanner } from './NoResultsBanner';
+import { LoadingBanner } from './LoadingBanner';
 
 export const TablePanel = () => {
 
@@ -19,15 +22,21 @@ export const TablePanel = () => {
     return files?.map(file => getRows(file)).flat(Infinity)
   }, [files]);
 
-  const displayTable = Array.isArray(rows) && rows.length > 0;
+  const displayTable = !isLoading && !isError && Array.isArray(rows) && rows.length > 0;
+  const displayNoResultBanner = !isLoading && !isError && !displayTable;
+
+
 
   return (
     <section>
       {
-        isLoading && <h1>Loading</h1>
+        isLoading && <LoadingBanner />
       }
       {
-        isError && <h1>{error}</h1>
+        isError && <ErrorBanner error={error} />
+      }
+      {
+        displayNoResultBanner && <NoResultsBanner />
       }
       {
         displayTable && <CustomTable columns={columns} rows={rows} />

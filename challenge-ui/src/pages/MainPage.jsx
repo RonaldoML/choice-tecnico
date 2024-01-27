@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 const MainPage = () => {
   return (
     <main>
-      <Container className="mt-5 pt-5">
+      <Container className="mt-5 pt-4">
         <TablePanel />
       </Container>
     </main>

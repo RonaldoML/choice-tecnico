@@ -6,4 +6,6 @@ export const types = {
 
   isError: "[ui] isError",
   noError: "[ui] noError",
+
+  saveSearchText: "[ui] saveSearchText",
 };
