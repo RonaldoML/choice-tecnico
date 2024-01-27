@@ -10,9 +10,12 @@ class Server {
   }
 
   routes() {
-    this.app.get('/', (req, res) => {
+    this.app.use('/files', require('../routes/files'));
+
+    this.app.get('/', (_, res) => {
       res.send('Hello World!')
     });
+
   }
 
   listen() {
