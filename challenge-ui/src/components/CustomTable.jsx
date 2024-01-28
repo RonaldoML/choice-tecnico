@@ -35,7 +35,7 @@ CustomTable.propTypes = {
   rows: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     text: PropTypes.string,
-    number: PropTypes.string,
+    number: PropTypes.number,
     hex: PropTypes.string,
   }))
 }
