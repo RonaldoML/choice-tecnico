@@ -1,7 +1,7 @@
 import configureStore from "redux-mock-store";
 
-import * as fileActions from "./file";
-import { types } from "../types/types";
+import * as fileActions from "../../../context/actions/file";
+import { types } from "../../../context/types/types";
 
 const mockStore = configureStore();
 const store = mockStore();
