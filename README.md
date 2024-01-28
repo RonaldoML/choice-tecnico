@@ -2,6 +2,15 @@
 
 Make sure you have installed [Docker](https://www.docker.com/products/docker-desktop/)
 
+
+### Stack
+
+    - UI: Reactjs, Bootstrap, Jest, Redux.
+    - API: Expressjs, Nodejs, Mocha, Chai, Swagger.
+     
+
+## Instructions
+
 1. First, clone the repo
 
 ```bash
@@ -30,13 +39,19 @@ cd docker compose up
 ```bash
     cd challenge-api
 ```
-2. Run the server
+
+2. Install dependencies
+```bash
+    npm install
+```
+
+3. Run the server
 ```bash
     npm start
 ```
-3. Runs in localhost:4000
+4. Runs in localhost:4000
    
-4. Run tests
+5. Run tests
 ```bash
     npm run test
 ```
@@ -44,17 +59,24 @@ cd docker compose up
 5. Swagger documentation runs in localhost:4000/api-doc
 
 ### UI:
+
 1. Go to challenge-ui
 ```bash
     cd challenge-ui
 ```
-2. Run the server
+
+2. Install dependencies
+```bash
+    npm install
+```
+
+3. Run the server
 ```bash
     npm start
 ```
-3. Runs in localhost:3000
+4. Runs in localhost:3000
 
-4. Run tests
+5. Run tests
 ```bash
     npm run test
 ```
