@@ -35,8 +35,13 @@ cd docker compose up
     npm start
 ```
 3. Runs in localhost:4000
+   
+4. Run tests
+```bash
+    npm run test
+```
 
-4. Swagger documentation runs in localhost:4000/api-doc
+5. Swagger documentation runs in localhost:4000/api-doc
 
 ### UI:
 1. Go to challenge-ui
@@ -49,4 +54,8 @@ cd docker compose up
 ```
 3. Runs in localhost:3000
 
+4. Run tests
+```bash
+    npm run test
+```
 Read the Readme.md of each project for more information
