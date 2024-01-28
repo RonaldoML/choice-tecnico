@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { CustomTable } from "./CustomTable";
+import { CustomTable } from "../../components/CustomTable";
 
 const columnsMock = ["File Name", "Text", "Number", "Hex"];
 
 const rowsMock = [{
   name: "test1.csv",
   text: "RgTya",
-  number: "64075909",
+  number: 64075909,
   hex: "70ad29aacf0b690b0467fe2b2767f765"
 }]
 
